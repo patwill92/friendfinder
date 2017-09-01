@@ -11,9 +11,10 @@
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"
           integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
           crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.16.2/axios.min.js"></script>
   <title>Survey</title>
   <style>
-    .btn:hover{
+    .btn:hover {
       cursor: pointer;
     }
   </style>
@@ -22,167 +23,170 @@
 <div class="container mt-4">
   <h2 style="font-weight: 400" class="display-5 mb-4">Survey Questions</h2>
   <h4 style="font-weight: 400" class="display-5 mb-3">About you</h4>
-  <div class="form-group">
-    <label for="name">
-      <h5 style="font-weight: 400" class="display-5">Name</h5>
-    </label>
-    <input type="text" name="name" id="name" class="form-control" required>
-    <hr>
-  </div>
-  <div class="form-group">
-    <label for="photo">
-      <h5 style="font-weight: 400" class="display-5">Link to Photo Image (Required)</h5>
-    </label>
-    <input type="text" name="photo" id="photo" class="form-control" required>
-    <hr>
-  </div>
-  <div class="form-group">
-    <label for="q1">
-      <h4 style="font-weight: 400" class="display-6">Question 1</h4>
-      <p class="lead mb-1">Your mind is always buzzing with unexplored ideas and plans.</p>
-    </label>
-    <select class="form-control" id="q1">
-      <option value="" selected disabled>select an option</option>
-      <option>1 (Strongly Disagree)</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5 (Strongly Agree)</option>
-    </select>
-  </div>
-  <div class="form-group">
-    <label for="q2">
-      <h4 style="font-weight: 400" class="display-6">Question 2</h4>
-      <p class="lead mb-1">Generally speaking, you rely more on your experience than your imagination.</p>
-    </label>
-    <select class="form-control" id="q2">
-      <option value="" selected disabled>select an option</option>
-      <option>1 (Strongly Disagree)</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5 (Strongly Agree)</option>
-    </select>
-  </div>
-  <div class="form-group">
-    <label for="q3">
-      <h4 style="font-weight: 400" class="display-6">Question 3</h4>
-      <p class="lead mb-1">You find it easy to stay relaxed and focused even when there is some pressure.</p>
-    </label>
-    <select class="form-control" id="q3">
-      <option value="" selected disabled>select an option</option>
-      <option>1 (Strongly Disagree)</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5 (Strongly Agree)</option>
-    </select>
-  </div>
-  <div class="form-group">
-    <label for="q4">
-      <h4 style="font-weight: 400" class="display-6">Question 4</h4>
-      <p class="lead mb-1">You rarely do something just out of sheer curiosity.</p>
-    </label>
-    <select class="form-control" id="q4">
-      <option value="" selected disabled>select an option</option>
-      <option>1 (Strongly Disagree)</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5 (Strongly Agree)</option>
-    </select>
-  </div>
-  <div class="form-group">
-    <label for="q5">
-      <h4 style="font-weight: 400" class="display-6">Question 5</h4>
-      <p class="lead mb-1">People can rarely upset you.</p>
-    </label>
-    <select class="form-control" id="q5">
-      <option value="" selected disabled>select an option</option>
-      <option>1 (Strongly Disagree)</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5 (Strongly Agree)</option>
-    </select>
-  </div>
-  <div class="form-group">
-    <label for="q6">
-      <h4 style="font-weight: 400" class="display-6">Question 6</h4>
-      <p class="lead mb-1">It is often difficult for you to relate to other people’s feelings.</p>
-    </label>
-    <select class="form-control" id="q6">
-      <option value="" selected disabled>select an option</option>
-      <option>1 (Strongly Disagree)</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5 (Strongly Agree)</option>
-    </select>
-  </div>
-  <div class="form-group">
-    <label for="q7">
-      <h4 style="font-weight: 400" class="display-6">Question 7</h4>
-      <p class="lead mb-1">In a discussion, truth should be more important than people’s sensitivities.</p>
-    </label>
-    <select class="form-control" id="q7">
-      <option value="" selected disabled>select an option</option>
-      <option>1 (Strongly Disagree)</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5 (Strongly Agree)</option>
-    </select>
-  </div>
-  <div class="form-group">
-    <label for="q8">
-      <h4 style="font-weight: 400" class="display-6">Question 8</h4>
-      <p class="lead mb-1">You rarely get carried away by fantasies and ideas.</p>
-    </label>
-    <select class="form-control" id="q8">
-      <option value="" selected disabled>select an option</option>
-      <option>1 (Strongly Disagree)</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5 (Strongly Agree)</option>
-    </select>
-  </div>
-  <div class="form-group">
-    <label for="q9">
-      <h4 style="font-weight: 400" class="display-6">Question 9</h4>
-      <p class="lead mb-1">You think that everyone’s views should be respected regardless of whether they are supported by facts or not.</p>
-    </label>
-    <select class="form-control" id="q9">
-      <option value="" selected disabled>select an option</option>
-      <option>1 (Strongly Disagree)</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5 (Strongly Agree)</option>
-    </select>
-  </div>
-  <div class="form-group">
-    <label for="q10">
-      <h4 style="font-weight: 400" class="display-6">Question 10</h4>
-      <p class="lead mb-1">You feel more energetic after spending time with a group of people.</p>
-    </label>
-    <select class="form-control" id="q10">
-      <option value="" selected disabled>select an option</option>
-      <option>1 (Strongly Disagree)</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5 (Strongly Agree)</option>
-    </select>
-  </div>
-  <br>
-  <br>
-  <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit"><i class="fa fa-check-circle"
-                                                                                aria-hidden="true"></i>
-    Submit
-  </button>
-
+  <form>
+    <div class="form-group">
+      <label for="name">
+        <h5 style="font-weight: 400" class="display-5">Name</h5>
+      </label>
+      <input type="text" name="name" id="name" class="form-control" required>
+      <hr>
+    </div>
+    <div class="form-group">
+      <label for="photo">
+        <h5 style="font-weight: 400" class="display-5">Link to Photo Image (Required)</h5>
+      </label>
+      <input type="file" class="form-control-file" id="photo" aria-describedby="fileHelp" name="photo">
+      <hr>
+    </div>
+    <div class="form-group">
+      <label for="q1">
+        <h4 style="font-weight: 400" class="display-6">Question 1</h4>
+        <p class="lead mb-1">Your mind is always buzzing with unexplored ideas and plans.</p>
+      </label>
+      <select name="survey" class="form-control" id="q1">
+        <option value="" selected disabled>select an option</option>
+        <option>1 (Strongly Disagree)</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5 (Strongly Agree)</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="q2">
+        <h4 style="font-weight: 400" class="display-6">Question 2</h4>
+        <p class="lead mb-1">Generally speaking, you rely more on your experience than your imagination.</p>
+      </label>
+      <select name="survey" class="form-control" id="q2">
+        <option value="" selected disabled>select an option</option>
+        <option>1 (Strongly Disagree)</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5 (Strongly Agree)</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="q3">
+        <h4 style="font-weight: 400" class="display-6">Question 3</h4>
+        <p class="lead mb-1">You find it easy to stay relaxed and focused even when there is some pressure.</p>
+      </label>
+      <select name="survey" class="form-control" id="q3">
+        <option value="" selected disabled>select an option</option>
+        <option>1 (Strongly Disagree)</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5 (Strongly Agree)</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="q4">
+        <h4 style="font-weight: 400" class="display-6">Question 4</h4>
+        <p class="lead mb-1">You rarely do something just out of sheer curiosity.</p>
+      </label>
+      <select name="survey" class="form-control" id="q4">
+        <option value="" selected disabled>select an option</option>
+        <option>1 (Strongly Disagree)</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5 (Strongly Agree)</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="q5">
+        <h4 style="font-weight: 400" class="display-6">Question 5</h4>
+        <p class="lead mb-1">People can rarely upset you.</p>
+      </label>
+      <select name="survey" class="form-control" id="q5">
+        <option value="" selected disabled>select an option</option>
+        <option>1 (Strongly Disagree)</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5 (Strongly Agree)</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="q6">
+        <h4 style="font-weight: 400" class="display-6">Question 6</h4>
+        <p class="lead mb-1">It is often difficult for you to relate to other people’s feelings.</p>
+      </label>
+      <select name="survey" class="form-control" id="q6">
+        <option value="" selected disabled>select an option</option>
+        <option>1 (Strongly Disagree)</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5 (Strongly Agree)</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="q7">
+        <h4 style="font-weight: 400" class="display-6">Question 7</h4>
+        <p class="lead mb-1">In a discussion, truth should be more important than people’s sensitivities.</p>
+      </label>
+      <select name="survey" class="form-control" id="q7">
+        <option value="" selected disabled>select an option</option>
+        <option>1 (Strongly Disagree)</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5 (Strongly Agree)</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="q8">
+        <h4 style="font-weight: 400" class="display-6">Question 8</h4>
+        <p class="lead mb-1">You rarely get carried away by fantasies and ideas.</p>
+      </label>
+      <select name="survey" class="form-control" id="q8">
+        <option value="" selected disabled>select an option</option>
+        <option>1 (Strongly Disagree)</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5 (Strongly Agree)</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="q9">
+        <h4 style="font-weight: 400" class="display-6">Question 9</h4>
+        <p class="lead mb-1">You think that everyone’s views should be respected regardless of whether they are
+          supported
+          by facts or not.</p>
+      </label>
+      <select name="survey" class="form-control" id="q9">
+        <option value="" selected disabled>select an option</option>
+        <option>1 (Strongly Disagree)</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5 (Strongly Agree)</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="q10">
+        <h4 style="font-weight: 400" class="display-6">Question 10</h4>
+        <p class="lead mb-1">You feel more energetic after spending time with a group of people.</p>
+      </label>
+      <select name="survey" class="form-control" id="q10">
+        <option value="" selected disabled>select an option</option>
+        <option>1 (Strongly Disagree)</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5 (Strongly Agree)</option>
+      </select>
+    </div>
+    <br>
+    <br>
+    <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit"><i class="fa fa-check-circle"
+                                                                                  aria-hidden="true"></i>
+      Submit
+    </button>
+  </form>
   <hr>
   <footer class="footer">
     <div class="container">
@@ -191,32 +195,56 @@
       </p>
     </div>
   </footer>
-
 </div>
-<div id="resultsModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h2 class="modal-title"><strong>Best Match</strong></h2>
+        <h5 class="modal-title" id="exampleModalLabel">Your match: <span id="my-match"></span></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
       <div class="modal-body">
-        <h2 id="matchName"></h2>
-        <img id="matchImg" src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg" alt="">
+        'BLAH'
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
 </div>
-
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
         integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
         crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
         integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
         crossorigin="anonymous"></script>
+<script>
+  $('.btn-lg').on('click', (e) => {
+    e.preventDefault();
+    var formData = new FormData();
+    var imagefile = document.querySelector('#photo');
+    let scores = [];
+    for (var i = 0; i < 10; i++) {
+      let val = $(`#q${i + 1}`).val();
+      scores.push(parseInt(val));
+    }
+    formData.append("image", imagefile.files[0]);
+    formData.append("name", $('#name').val());
+    formData.append("survey", scores);
+    axios.post('/find-match', formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      }
+    }).then((res) => {
+      console.log(res);
+      $('#my-match').html(res.data.name);
+      $('.modal-body').html('');
+      $('.modal-body').html(`<img style="width: 200px; height: auto;" src="http://localhost:3001/img/${res.data.id}">`);
+      $('#myModal').modal('show');
+    });
+  });
+</script>
 </body>
 </html>
